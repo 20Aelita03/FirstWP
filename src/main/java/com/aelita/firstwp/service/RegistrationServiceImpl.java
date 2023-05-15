@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 public class RegistrationServiceImpl implements RegistrationService{
 
 
-    public static String hello(String login, String password, String confirmPassword) throws WrongLoginException {
+    public String hello(String login, String password, String confirmPassword) throws WrongLoginException {
         String pat = "(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9_])";
         String answer = "";
         String answer2 = "";

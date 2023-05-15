@@ -13,18 +13,23 @@ import org.springframework.web.bind.annotation.RestController;
 public class Controller {
 
     private final RegistrationService registrationService;
-   public Controller(RegistrationService registrationService){
-       this.registrationService = registrationService;
-   }
-   @GetMapping
-    public String Hello(@RequestParam("login")String login, @RequestParam("password")String password, @RequestParam("confirmPassword")String confirmPassword){
-      try {
-          return RegistrationService.hello(login, password, confirmPassword);
-      }catch (WrongLoginException e) {
-          return "Логин не подходит";
-      }catch (WrongPasswordException e) {
-          return "Пароль не подходит";
-      }
-   }
+
+    public Controller(RegistrationService registrationService) {
+        this.registrationService = registrationService;
+    }
+
+    @GetMapping
+
+
+    public String Hello(@RequestParam("login") String login, @RequestParam("password") String password, @RequestParam("confirmPassword") String confirmPassword) {
+        try {
+            return registrationService.hello(login, password, confirmPassword);
+        } catch (WrongLoginException e) {
+            return "Логин не подходит";
+        } catch (WrongPasswordException e) {
+            return "Пароль не подходит";
+        }
+    }
+
 
 }

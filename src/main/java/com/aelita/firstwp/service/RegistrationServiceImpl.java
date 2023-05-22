@@ -14,7 +14,7 @@ public class RegistrationServiceImpl implements RegistrationService {
 
     //(?=.*[A-Z])(?=.*[0-9_])
     public String hello(String login, String password, String confirmPassword) throws WrongLoginException {
-        String pat = "^[A-Za-z0-9_]";
+        String pat = "^[a-zA-Z0-9_]{1,20}";
         Pattern pattern = Pattern.compile(pat);
         Matcher matcher = pattern.matcher(login);
         Matcher matcher2 = pattern.matcher(password);
